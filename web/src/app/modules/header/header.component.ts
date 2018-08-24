@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { Router, NavigationEnd, UrlSegment } from '@angular/router';
-import {MenuItem} from "../main-menu/menuItem";
-import {MainMenuComponent} from "../main-menu/main-menu.component";
+import {HmenuComponent} from "../ui-lib/hmenu/hmenu.component";
 
 @Component({
   selector: 'portail-header',
@@ -10,8 +9,8 @@ import {MainMenuComponent} from "../main-menu/main-menu.component";
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(MainMenuComponent)
-  private mainMenu : MainMenuComponent;
+  @ViewChild(HmenuComponent)
+  private mainMenu : HmenuComponent;
 
   private _currentPath : string;
 
@@ -27,10 +26,15 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.mainMenu.menuItemSelected.subscribe(this.onMenuItemSelected.bind(this));
   }
 
   public get currentPath() : string {
     return this._currentPath;
+  }
+
+  onMenuItemSelected(menuItem) {
+    this._router.navigate(['', { outlets: { main: [menuItem.path] }}]);
   }
 
 }

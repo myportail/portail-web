@@ -2,6 +2,12 @@
   position: relative;
   top: 0;
   left: 0;
+  min-height: 1rem;
+
+  .bread-crumbs-home {
+    cursor: pointer;
+    text-shadow: 0 0 4px #FF7140;
+  }
 
   .bread-crumb-item {
     margin-left: 0.5rem;

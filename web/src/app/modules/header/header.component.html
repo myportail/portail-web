@@ -1,0 +1,10 @@
+<div class="header-background" style="color: white">
+  <auth-section class="auth-section"></auth-section>
+  {{currentPath}}
+  <ui-hmenu #mainMenu
+             class="main-menu"
+             outlet="main">
+    <ui-hmenu-item path="home" title="home"></ui-hmenu-item>
+    <ui-hmenu-item path="users" title="{{ 'main_menu_admin' | translate }}"></ui-hmenu-item>
+  </ui-hmenu>
+</div>

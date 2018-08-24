@@ -3,8 +3,12 @@
   margin-right: 1rem;
   margin-left: 1rem;
   cursor: pointer;
-}
 
-.menu-item:hover {
-  text-shadow: 0 0 4px #FF7140;
+  .active {
+    color: #FF7140;
+  }
+
+  .inactive:hover {
+    text-shadow: 0 0 4px #FF7140;
+  }
 }
