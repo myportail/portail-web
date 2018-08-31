@@ -20,8 +20,8 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.queryUsers()
-      .subscribe( (users: Array<api.User>) => {
-
+      .subscribe( (users: Array<User>) => {
+        this._users = users;
       });
   }
 

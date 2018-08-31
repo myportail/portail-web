@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { api } from '../models/api/User';
+import { User } from '../models/User';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
@@ -10,10 +11,10 @@ export class UsersService {
 
   constructor(private _http : HttpClient) { }
 
-  queryUsers() : Observable<Array<api.User>> {
+  queryUsers() : Observable<Array<User>> {
 
     let usersQueryObserver : any;
-    const result = new Observable<Array<api.User>>((observer) => {
+    const result = new Observable<Array<User>>((observer) => {
       usersQueryObserver = observer;
     });
 
@@ -22,9 +23,12 @@ export class UsersService {
         'Content-Type':  'application/json'
       })
     };
+
     this._http.get<Array<api.User>>(`/api/auth/users`, httpOptions)
       .subscribe( (response: object) => {
-        console.log(response);
+        const users = [];
+        users.push(new User('100', 'test'));
+        usersQueryObserver.next(users);
       }, (error) => {
         console.log(error);
       });
