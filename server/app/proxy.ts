@@ -76,7 +76,7 @@ export class Proxy {
         const headers : Headers = {
             'Content-Type': req.headers['content-type'],
             'accept': req.headers['accept'],
-            'Authorization': req.headers['Authorization']
+            'Authorization': req.headers['authorization']
         };
 
         return headers;
