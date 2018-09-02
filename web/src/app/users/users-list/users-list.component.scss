@@ -1,0 +1,38 @@
+.users-list-page {
+  margin-top: 2rem;
+  height: 200px;
+  display: flex;
+  border: 1px solid blue;
+  flex-direction: row;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .users-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .username {
+      display: inline-flex;
+      width: 40%;
+
+      .username-text {
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+      }
+    }
+
+    .role {
+      display: inline-flex;
+      width: 30%;
+
+      .role-text {
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+      }
+    }
+  }
+}

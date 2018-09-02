@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from "../models/User";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {api} from '../models/api/login';
@@ -30,19 +30,15 @@ interface LoginResponse {
 
 
 class AuthService {
-  private _authStatusObservable : Observable<AuthStatus>;
-  private _authStatusObserver : any;
+  private readonly _authStatusObservable : BehaviorSubject<AuthStatus>;
   private _token : string;
   private _currentUser : User;
 
   constructor(private _http : HttpClient ) {
-    this._authStatusObservable = new Observable((observer) => {
-      this._authStatusObserver = observer;
-      observer.next(AuthStatus.notAuthenticated);
-    });
+    this._authStatusObservable = new BehaviorSubject(AuthStatus.notAuthenticated);
   }
 
-  public get authStatus() : Observable<AuthStatus> {
+  public get authStatus() : BehaviorSubject<AuthStatus> {
     return this._authStatusObservable;
   }
 
@@ -58,7 +54,7 @@ class AuthService {
     username: string,
     password: string
   ) {
-    this._authStatusObserver.next(AuthStatus.authenticating);
+    this._authStatusObservable.next(AuthStatus.authenticating);
 
     const login = new api.Login(username, password);
 
@@ -71,24 +67,23 @@ class AuthService {
       .subscribe((response: object) => {
         const loginResponse = response as LoginResponse;
         if (loginResponse.token) {
-          // this._httpService.token = loginResponse.token;
           this._token = loginResponse.token;
         }
         const claims = decode(loginResponse.token) as TokenClaims;
         if (claims) {
           this._currentUser = new User(claims.id, claims.username);
-          this._authStatusObserver.next(AuthStatus.authenticated);
+          this._authStatusObservable.next(AuthStatus.authenticated);
         } else {
-          this._authStatusObserver.next(AuthStatus.notAuthenticated);
+          this._authStatusObservable.next(AuthStatus.notAuthenticated);
         }
       }, (error) => {
-        this._authStatusObserver.next(AuthStatus.notAuthenticated);
+        this._authStatusObservable.next(AuthStatus.notAuthenticated);
         console.log(error);
       });
   }
 
   public signout() {
-    this._authStatusObserver.next(AuthStatus.notAuthenticated);
+    this._authStatusObservable.next(AuthStatus.notAuthenticated);
   }
 }
 
