@@ -32,8 +32,6 @@ export class UsersListComponent implements OnInit, OnDestroy {
           this._users = [];
         }
       });
-
-    this.getUsers();
   }
 
   ngOnDestroy() {

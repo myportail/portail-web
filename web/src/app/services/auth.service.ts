@@ -6,6 +6,7 @@ import {api} from '../models/api/login';
 import * as decode from 'jwt-decode';
 
 import { environment } from './../../environments/environment';
+import {NGXLogger} from "ngx-logger";
 
 
 enum AuthStatus {
@@ -34,8 +35,10 @@ class AuthService {
   private _token : string;
   private _currentUser : User;
 
-  constructor(private _http : HttpClient ) {
+  constructor(private _http : HttpClient,
+              private logger : NGXLogger ) {
     this._authStatusObservable = new BehaviorSubject(AuthStatus.notAuthenticated);
+    this.logger.debug('auth service construction');
   }
 
   public get authStatus() : BehaviorSubject<AuthStatus> {

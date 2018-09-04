@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  servers: {
-    auth: 'http://localhost:8001/api'
+  login: {
+    username: 'Admin',
+    password: 'Admin@123'
   }
 };
 
