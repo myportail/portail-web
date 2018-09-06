@@ -7,6 +7,9 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/h
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
 
 import {AppComponent} from './app.component';
 import {UsersListComponent} from './users/users-list/users-list.component';
@@ -27,6 +30,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     HeaderModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatTableModule,
     HttpClientModule,
     LoggerModule.forRoot({ level : NgxLoggerLevel.DEBUG }),
     RouterModule.forRoot(appRoutes, { enableTracing: false } ),

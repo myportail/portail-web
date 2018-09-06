@@ -8,31 +8,22 @@
   margin-left: auto;
   margin-right: auto;
 
-  .users-list {
-    display: flex;
-    flex-direction: row;
+  table {
     width: 100%;
+  }
+
+  .users-list {
+    width: 100%;
+    cursor: default;
 
     .username {
-      display: inline-flex;
       width: 40%;
-
-      .username-text {
-        margin-left: auto;
-        margin-right: auto;
-        cursor: default;
-      }
+      cursor: default;
     }
 
     .role {
-      display: inline-flex;
       width: 30%;
-
-      .role-text {
-        margin-left: auto;
-        margin-right: auto;
-        cursor: default;
-      }
+      cursor: default;
     }
   }
 }

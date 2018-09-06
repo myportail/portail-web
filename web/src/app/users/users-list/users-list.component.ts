@@ -3,6 +3,7 @@ import { UsersService } from '../../services/users.service';
 import { User } from '../../models/User';
 import {Subscription} from "rxjs";
 import {AuthService, AuthStatus} from "../../services/auth.service";
+import {MatTableDataSource} from "@angular/material";
 
 @Component({
   selector: 'users-list',
@@ -14,6 +15,9 @@ export class UsersListComponent implements OnInit, OnDestroy {
   private _users : Array<User>;
   private _usersSubscription : Subscription;
   private _authSubscription : Subscription;
+
+  displayedColumns : string[] = ['username', 'role'];
+  dataSource = new MatTableDataSource<User>();
 
   constructor(
     private usersService : UsersService,
@@ -45,6 +49,7 @@ export class UsersListComponent implements OnInit, OnDestroy {
     this._usersSubscription = this.usersService.queryUsers()
       .subscribe( (users: Array<User>) => {
         this._users = users;
+        this.dataSource = new MatTableDataSource<User>(users);
       });
   }
 
