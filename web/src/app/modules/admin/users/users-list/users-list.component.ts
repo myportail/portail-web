@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { UsersService } from '../../services/users.service';
-import { User } from '../../models/User';
+import { UsersService } from '../../../../services/users.service';
+import { User } from '../../../../models/User';
 import {Subscription} from "rxjs";
-import {AuthService, AuthStatus} from "../../services/auth.service";
+import {AuthService, AuthStatus} from "../../../../services/auth.service";
 import {MatTableDataSource} from "@angular/material";
 
 @Component({

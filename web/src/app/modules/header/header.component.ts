@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   onMenuItemSelected(menuItem) {
-    this._router.navigate(['', { outlets: { main: [menuItem.path] }}]);
+    this._router.navigate([menuItem.path]);
   }
 
 }

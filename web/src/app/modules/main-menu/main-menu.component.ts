@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import {MenuItem} from './menuItem';
 import {MenuItemComponent} from "./menu-item/menu-item.component";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'main-menu',
@@ -21,12 +22,17 @@ export class MainMenuComponent implements OnInit, AfterViewInit, AfterContentIni
   @ContentChildren(MenuItemComponent)
   private _menuItems : QueryList<MenuItemComponent>;
 
-  constructor() { }
+  constructor(private _router : Router) { }
 
   @Input() outlet : string;
   @Input() title : string;
 
   ngOnInit() {
+    this._router.events.subscribe(val => {
+      if (val instanceof NavigationEnd) {
+        console.log(val);
+      }
+    });
   }
 
   ngAfterViewInit() {

@@ -1,5 +1,6 @@
+hello world
+
 <div class="users-list-page">
-  <!--<i class="material-icons">add</i>-->
   <div class="users-list">
     <table mat-table #table [dataSource]="users">
       <ng-container matColumnDef="username">
@@ -14,12 +15,4 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
-  <!--<div class="users-list" *ngFor="let user of users; let i = index">-->
-    <!--<div class="username">-->
-      <!--<span class="username-text">{{user.username}}</span>-->
-    <!--</div>-->
-    <!--<div class="role">-->
-      <!--<span class="role-text">user role</span>-->
-    <!--</div>-->
-  <!--</div>-->
 </div>

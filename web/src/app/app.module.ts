@@ -12,10 +12,11 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
 
 import {AppComponent} from './app.component';
-import {UsersListComponent} from './users/users-list/users-list.component';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {AuthInterceptor} from "./interceptors/authInterceptor";
+import {AdminModule} from "./modules/admin/admin.module";
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -23,13 +24,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    UsersListComponent,
     LoginComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
     HeaderModule,
+    AdminModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
