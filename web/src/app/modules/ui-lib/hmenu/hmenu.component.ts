@@ -9,6 +9,7 @@ import {
   QueryList
 } from '@angular/core';
 import {HmenuItemComponent} from "../hmenu-item/hmenu-item.component";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'ui-hmenu',
@@ -22,7 +23,7 @@ export class HmenuComponent implements OnInit, AfterContentInit {
 
   private _selectedMenuItem : HmenuItemComponent;
 
-  constructor() { }
+  constructor(private _router : Router) { }
 
   @Input() outlet : string;
   @Input() title : string;
@@ -30,6 +31,20 @@ export class HmenuComponent implements OnInit, AfterContentInit {
   @Output() menuItemSelected : EventEmitter<HmenuItemComponent> = new EventEmitter();
 
   ngOnInit() {
+    this._router.events.subscribe(val => {
+      if (val instanceof NavigationEnd) {
+        var snapshot = this._router.routerState.snapshot.root;
+        snapshot.children.forEach((route) => {
+          if (route.outlet === 'main') {
+            const menuItem = this._menuItems.find(x => x.path === route.routeConfig.path);
+            if (menuItem) {
+              menuItem.activate();
+            }
+          }
+        });
+        console.log(val);
+      }
+    });
   }
 
   ngAfterContentInit() {
