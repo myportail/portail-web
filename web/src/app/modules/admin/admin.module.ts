@@ -8,6 +8,8 @@ import {MatTableModule} from "@angular/material/table";
 import {RouterModule} from "@angular/router";
 import {adminRoutes} from "./admin-routes";
 import { UsersComponent } from './users/users.component';
+import {UsersListControlsComponent} from "./users/users-list-controls/users-list-controls.component";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   imports: [
@@ -16,12 +18,14 @@ import { UsersComponent } from './users/users.component';
     MatButtonModule,
     MatCheckboxModule,
     MatTableModule,
+    FlexLayoutModule,
     RouterModule.forChild(adminRoutes)
   ],
   declarations: [
     AdminComponent,
     UsersListComponent,
-    UsersComponent
+    UsersComponent,
+    UsersListControlsComponent
   ],
   exports: [AdminComponent]
 })

@@ -5,7 +5,7 @@ import {UsersListComponent} from "./users/users-list/users-list.component";
 export const adminRoutes : Routes = [
   {
     path: 'users',
-    component: UsersListComponent
+    component: UsersComponent
   },
   {
     path: '',
