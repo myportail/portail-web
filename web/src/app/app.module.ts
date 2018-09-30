@@ -16,6 +16,7 @@ import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {AuthInterceptor} from "./interceptors/authInterceptor";
 import {AdminModule} from "./modules/admin/admin.module";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,6 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatButtonModule,
     MatCheckboxModule,
     MatTableModule,
+    FlexLayoutModule,
     HttpClientModule,
     LoggerModule.forRoot({ level : NgxLoggerLevel.DEBUG }),
     RouterModule.forRoot(appRoutes, { enableTracing: false } ),
