@@ -26,7 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

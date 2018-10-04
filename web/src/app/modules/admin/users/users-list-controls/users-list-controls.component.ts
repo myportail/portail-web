@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NewUserFormComponent} from "../new-user-form/new-user-form.component";
+import {MatDialog, MatDialogConfig} from "@angular/material";
 
 @Component({
   selector: 'users-list-controls',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListControlsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  onAddUser() {
+
+    const dlgConfig = new MatDialogConfig();
+    dlgConfig.width = '600px';
+    dlgConfig.height = '400px';
+
+    let refDialog = this.dialog.open(NewUserFormComponent, dlgConfig);
   }
 
 }
