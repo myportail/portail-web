@@ -16,8 +16,8 @@ interface Headers {
 
 const app: express.Application = express();
 const router: Router = express.Router();
-const port: number = process.env.PORT || 8000;
-const path: string = Path.resolve('./../web/dist/portail');
+const port: number = process.env.PORT || 8002;
+const path: string = Path.resolve('./build/html');
 
 console.log(`dirname : ${__dirname}`);
 console.log(`path : ${path}`);
@@ -32,8 +32,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 
 app.use(express.static(path + '/'));
-app.use(new Proxy('/api/auth/',
-    'http://127.0.0.1:8001/api/').requestHandler );
+// app.use(new Proxy('/api/auth/',
+//     'http://127.0.0.1:8001/api/').requestHandler );
 
 
 app.use('/', router);

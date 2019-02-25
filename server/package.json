@@ -2,7 +2,7 @@
   "name": "PortailServer",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc",
+    "build": "cp -r ../web/dist/portail ./build/html | mkdir -p ./build/html | tsc",
     "start": "node build/server.js"
   },
   "private": true,
