@@ -14,10 +14,9 @@ WORKDIR /src/server
 RUN npm install
 RUN npm run build
 
-FROM alpine:latest as final
-RUN apk update && apk add nodejs && apk add npm
-#RUN apt -y update
-#RUN apt -y install nodejs npm
+FROM ubuntu:latest as final
+RUN apt -y update
+RUN apt -y install nodejs npm
 COPY --from=build /src/server/build /server
 COPY --from=build /src/server/package.json /server
 COPY --from=build /src/server/package-lock.json /server
