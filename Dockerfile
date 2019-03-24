@@ -1,6 +1,6 @@
 FROM ubuntu:latest as build
 RUN apt -y update
-RUN apt -y install nodejs npm
+RUN apt -y install nodejs npm git
 WORKDIR /src
 COPY ./web /src/web
 WORKDIR /src/web
@@ -16,7 +16,7 @@ RUN npm run build
 
 FROM ubuntu:latest as final
 RUN apt -y update
-RUN apt -y install nodejs npm
+RUN apt -y install nodejs npm git
 COPY --from=build /src/server/build /server
 COPY --from=build /src/server/package.json /server
 COPY --from=build /src/server/package-lock.json /server
