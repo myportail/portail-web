@@ -17,7 +17,7 @@ interface Headers {
 const app: express.Application = express();
 const router: Router = express.Router();
 const port: number = process.env.PORT || 8002;
-const path: string = Path.resolve('./build/html');
+const path: string = Path.resolve('./html');
 
 console.log(`dirname : ${__dirname}`);
 console.log(`path : ${path}`);

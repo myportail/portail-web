@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  portail:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: portail
+    working_dir: /server
+    entrypoint: ["node", "server.js"]
+    ports:
+      - "8002:8002"
