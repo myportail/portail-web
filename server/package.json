@@ -2,7 +2,7 @@
   "name": "PortailServer",
   "version": "1.0.0",
   "scripts": {
-    "build": "cp -r ../web/dist/portail ./build/html | mkdir -p ./build/html | tsc",
+    "build": "tsc",
     "start": "node build/server.js"
   },
   "private": true,
@@ -16,6 +16,7 @@
     "@types/express": "^4.16.0",
     "@types/node": "^10.3.1",
     "body-parser": "^1.18.3",
+    "commander": "^2.19.0",
     "express": "^4.16.3",
     "http": "0.0.0",
     "http-proxy": "^1.17.0",

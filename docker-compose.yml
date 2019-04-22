@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 
 services:
   portail:
@@ -6,7 +6,15 @@ services:
       dockerfile: Dockerfile
       context: .
     image: portail
+    container_name: portail
     working_dir: /server
-    entrypoint: ["node", "server.js"]
+    entrypoint: ["node", "app/server.js"]
+    networks:
+      - deployement_portail
     ports:
       - "8002:8002"
+    environment:
+      - ENVIRONMENT_NAME=docker
+networks:
+  deployement_portail:
+    external: true

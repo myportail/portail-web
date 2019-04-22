@@ -4,4 +4,5 @@ Dockerfile
 .gitignore
 /web/node_modules/*
 /server/node_modules/*
-
+/server/build
+/web/dist

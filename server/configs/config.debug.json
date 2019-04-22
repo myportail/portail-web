@@ -1,0 +1,6 @@
+{
+  "port": 8002,
+  "html": {
+    "root": "../web/dist/portail"
+  }
+}
