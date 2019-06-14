@@ -3,13 +3,10 @@ import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import {UsersListComponent} from "./users/users-list/users-list.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatIconModule,
-  MatDialogModule,
-  MAT_DIALOG_DEFAULT_OPTIONS
-} from "@angular/material";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from "@angular/material/dialog";
+import { MatIconModule } from "@angular/material/icon";
 import {MatTableModule} from "@angular/material/table";
 import {RouterModule} from "@angular/router";
 import {adminRoutes} from "./admin-routes";

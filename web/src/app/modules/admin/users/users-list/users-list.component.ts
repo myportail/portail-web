@@ -3,7 +3,7 @@ import { UsersService } from '../../../../services/users.service';
 import { User } from '../../../../models/User';
 import {Subscription} from "rxjs";
 import {AuthService, AuthStatus} from "../../../../services/auth.service";
-import {MatTableDataSource} from "@angular/material";
+import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
   selector: 'users-list',

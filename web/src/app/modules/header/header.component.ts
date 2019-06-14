@@ -9,7 +9,7 @@ import {HmenuComponent} from "../ui-lib/hmenu/hmenu.component";
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(HmenuComponent)
+  @ViewChild(HmenuComponent, { static: false })
   private mainMenu : HmenuComponent;
 
   private _currentPath : string;

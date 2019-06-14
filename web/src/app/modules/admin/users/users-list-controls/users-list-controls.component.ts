@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NewUserFormComponent} from "../new-user-form/new-user-form.component";
-import {MatDialog, MatDialogConfig} from "@angular/material";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 
 @Component({
   selector: 'users-list-controls',
